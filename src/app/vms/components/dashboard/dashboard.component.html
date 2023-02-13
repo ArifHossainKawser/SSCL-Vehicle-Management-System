@@ -1,0 +1,35 @@
+ <!-- SIDEBAR START FROM HERE -->
+
+<div [ngClass]="sidebar ? 'sidebarActive' : 'sidebar'">
+  <img src="./assets\spectrum logo.png" class="img-thumbnail" alt="Spectrum-logo">
+
+  <button class="btnDashboard"><i class="fa-solid fa-chart-pie"></i> &nbsp; &nbsp; Dashboard</button>
+  <button class="btnDashboard"><i class="fa-solid fa-circle-info"></i> Car Booking Request</button>
+
+  <div class="dropdown" style="border: 1px solid black;">
+    <button class="btn btn-secondary dropdown-toggle" style="width: 100%;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu" style="width: 100%;">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SIDEBAR END HERE -->
+
+
+
+
+<div [ngClass]="sidebar ? 'main-flex-containerWithSidebar' :'main-flex-containerWithoutSidebar'">
+<div class="dashbar">
+  <button style="background-color: transparent; border: none;"
+          (click)="sidebarShow()">
+          <i class="fa-solid fa-bars fa-2x">
+          </i></button>
+
+
+</div>
+</div>

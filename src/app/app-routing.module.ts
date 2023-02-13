@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './vms/components/dashboard/dashboard.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: "vms", component: DashboardComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
