@@ -9,15 +9,11 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  sidebar: boolean = true;
+
 
   ngOnInit(): void {
   }
 
-  sidebarShow(){
-    this.sidebar = !this.sidebar;
-    console.log(this.sidebar);
 
-  }
 
 }
