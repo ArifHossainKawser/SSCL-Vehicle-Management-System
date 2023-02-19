@@ -7,13 +7,17 @@
   <hr>
   </div>
 
-  <div class="tableDiv" style="height: 80vh; overflow-x: hidden; scroll-behavior: smooth;">
+  <!-- REQUEST START HERE -->
+
+  <div class="tableDiv" style="height: 40vh; overflow-x: hidden; scroll-behavior: smooth;">
 
     <table class="table table-bordered border-dark" style="text-align: center;">
       <thead style="position: sticky; top:0;">
         <tr style="background-color: #349748; color: white;">
+          <th>Sl.No</th>
         <th>Car No:</th>
         <th>Name:</th>
+        <th>Driver Name:</th>
         <th>Place:</th>
         <th>Date from:</th>
         <th>Date to:</th>
@@ -24,52 +28,106 @@
       </tr>
       </thead>
       <tbody>
-        <tr style="background: linear-gradient(#a8fdb9, #ffffff);">
-          <td>23234</td>
-          <td>Arif</td>
-          <td>Gulshan</td>
-          <td>12-07-2022</td>
-          <td>12-04-2022</td>
-          <td>12:55 pm</td>
-          <td>4:00 pm</td>
-          <td>6hrs</td>
-          <td>
-            <div class="approveDiv" *ngIf="actionButton">
-              <button class="btn btn-success" (click)="approve()" style="width: 45%;">Approve</button>&nbsp; | &nbsp;
-            <button class="btn btn-danger" style="width: 45%;" data-bs-toggle="modal" data-bs-target="#DeclineModal">Decline</button>
+        <tr *ngFor="let request of newBookingsRequest; let i = index;" style="background: linear-gradient(#a8fdb9, #ffffff);">
+          <td>{{i+1}}</td>
+          <td>{{request.carNo}}</td>
+          <td>{{request.name}}</td>
+          <td>{{request.driverName}}</td>
+          <td>{{request.place}}</td>
+          <td>{{request.dateFrom}}</td>
+          <td>{{request.dateTo}}</td>
+          <td>{{request.timeFrom}}</td>
+          <td>{{request.timeTo}}</td>
+          <td>{{request.totalDuration}}</td>
+          <td style="flex: auto;">
+            <div class="approveDiv" *ngIf="request.approve">
+              <button class="btn btn-success" (click)="approve(i)" style="width: fit-content;">Approve</button>&nbsp; | &nbsp;
+            <button class="btn btn-danger"  style="width: fit-content;" data-bs-toggle="modal" data-bs-target="#DeclineModal">Decline</button>
             </div>
-            <div class="approveDiv" *ngIf="actionButton == false">
-              <button class="btn btn-danger" (click)="approve()" style="width: 100%;">Cancle</button>
+            <div class="approveDiv" *ngIf="!request.approve">
+              <button class="btn btn-danger" (click)="approve(i)" style="width: 100%">Cancle</button>
             </div>
           </td>
         </tr>
 
       </tbody>
     </table>
+  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="DeclineModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DeclineModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="DeclineModalLabel">Decline Message</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <select name="" id="">
-              <option value="Unavailable right now">Unavailable right now</option>
-            </select>
-            <p>Optional:</p>
-            <textarea name="declineMessage" id="" cols="58" rows="10" style="border-radius: 10px; padding: 10px;"></textarea>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger">Confirm</button>
+  <!-- REQUEST TABLE END HERE -->
+
+  <div class="pagetitle" style="margin-top: 1%;">
+    <h3><b>Recent Approval</b></h3>
+  <hr>
+  </div>
+
+  <div class="tableDiv" style="height: 40vh; overflow-x: hidden; scroll-behavior: smooth;">
+
+    <table class="table table-bordered border-dark" style="text-align: center;">
+      <thead style="position: sticky; top:0;">
+        <tr style="background-color: #349748; color: white;">
+          <th>Sl.No</th>
+        <th>Car No:</th>
+        <th>Name:</th>
+        <th>Driver Name:</th>
+        <th>Place:</th>
+        <th>Date from:</th>
+        <th>Date to:</th>
+        <th>Time from:</th>
+        <th>Time to:</th>
+        <th>Total Duration:</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of approvedRequest; let i = index;" style="background: linear-gradient(#a8fdb9, #ffffff);">
+          <td>{{i+1}}</td>
+          <td>{{request.carNo}}</td>
+          <td>{{request.name}}</td>
+          <td>{{request.driverName}}</td>
+          <td>{{request.place}}</td>
+          <td>{{request.dateFrom}}</td>
+          <td>{{request.dateTo}}</td>
+          <td>{{request.timeFrom}}</td>
+          <td>{{request.timeTo}}</td>
+          <td>{{request.totalDuration}}</td>
+          <td style="flex: auto;">
+            <div class="approveDiv" *ngIf="request.approve">
+              <button class="btn btn-success" (click)="approve(i)" style="width: fit-content;">Approve</button>&nbsp; | &nbsp;
+            <button class="btn btn-danger"  style="width: fit-content;" data-bs-toggle="modal" data-bs-target="#DeclineModal">Decline</button>
+            </div>
+            <div class="approveDiv" *ngIf="!request.approve">
+              <button class="btn btn-danger" (click)="approve(i)" style="width: 100%">Cancle</button>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="DeclineModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DeclineModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="DeclineModalLabel">Decline Message</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <select name="" id="">
+                <option value="Unavailable right now">Unavailable right now</option>
+              </select>
+              <p>Optional:</p>
+              <textarea name="declineMessage" id="" cols="58" rows="10" style="border-radius: 10px; padding: 10px;"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger">Confirm</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 
-  </div>
 
