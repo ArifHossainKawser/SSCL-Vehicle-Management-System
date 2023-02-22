@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Booking } from '../../model/booking';
-import { BookingRepository } from '../../model/booking.repository';
+import { Booking } from 'src/app/vms/model/booking';
+import { BookingRepository } from 'src/app/vms/model/booking.repository';
 
 @Component({
   selector: 'app-booking-request',
@@ -12,8 +12,6 @@ export class BookingRequestComponent implements OnInit {
   constructor(private repository: BookingRepository) { }
 
   ngOnInit(): void {
-    console.log(this.approvedRequest);
-
   }
 
   approve(index: number){
@@ -27,15 +25,6 @@ export class BookingRequestComponent implements OnInit {
   get approvedRequest(): Booking[] {
     return this.repository.getBookings().filter(b => b.approve == false);
 
-  }
-
-
-
-
-
-
-
-
-
+}
 
 }

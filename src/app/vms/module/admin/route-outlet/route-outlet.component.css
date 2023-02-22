@@ -1,0 +1,78 @@
+body{
+  height: 100%;
+  width: 100%;
+}
+.main-flex-containerWithSidebar{
+  display: flex;
+  margin-left: 15%;
+  transition: margin-left 500ms ease-in;
+}
+
+.main-flex-containerWithoutSidebar{
+  display: flex;
+  margin-left: 0%;
+  transition: margin-left 500ms ease-out;
+}
+
+.dashbar{
+  flex: 1;
+  height: 100vh;
+  padding: 10px;
+}
+
+
+.sidebar{
+  position: absolute;
+  left: -15%;
+  width: 15%;
+  height: 100vh;
+  background-color: #C4FAC0;
+  align-items: center;
+  transition-property: left;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+
+}
+
+
+.sidebarActive{
+  position: absolute;
+  left: 0%;
+  width: 15%;
+  min-width: 15%;
+  height: 100vh;
+  background-color: #C4FAC0;
+  align-items: center;
+  transition-property: left;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+
+.img-thumbnail{
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  background-color: transparent;
+  border: none;
+}
+
+.btnOfSideMenu{
+  width: 100%;
+  text-align: justify;
+  text-indent: 3%;
+  font-weight: bold;
+  font-size: 12pt;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-bottom: 1%;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 2px 2px 0px;
+}
+
+.sidebarInnerButtonDiv{
+  background-color: #96D892;
+}
