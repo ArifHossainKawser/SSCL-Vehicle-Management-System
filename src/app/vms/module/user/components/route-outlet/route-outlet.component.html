@@ -1,0 +1,49 @@
+ <!-- SIDEBAR START FROM HERE -->
+
+ <div [ngClass]="sidebar ? 'sidebarActive' : 'sidebar'">
+  <img src="./assets\spectrum logo.png" class="img-thumbnail" alt="Spectrum-logo">
+
+ <a routerLink="./dashboard" class="buttonHober"><button class="btnOfSideMenu"><i class="fa-solid fa-chart-pie"></i> &nbsp; &nbsp; Dashboard</button></a>
+
+  <!-- COLLAPSE BUTTON OF (Request) START FROM HERE -->
+
+    <button class="btnOfSideMenu" type="button" data-bs-toggle="collapse" data-bs-target="#Request" aria-expanded="false" aria-controls="collapseExample">
+      <i class="fa-solid fa-arrow-right"></i> &nbsp; &nbsp; Request <i class="fa-sharp fa-solid fa-caret-down" style="float: right; padding: 5px;"></i>
+    </button><br>
+  <div class="collapse" id="Request">
+    <div class="sidebarInnerButtonDiv">
+      <a routerLink="./car-request"><button class="btnOfSideMenu"><i class="fa-solid fa-car-side"></i> &nbsp; &nbsp; New Booking</button></a>
+      <a routerLink="./request-history"><button class="btnOfSideMenu"><i class="fa-solid fa-list"></i> &nbsp; &nbsp; Booking History</button></a>
+    </div>
+  </div>
+
+  <!-- COLLAPSE BUTTON OF (request) END HERE -->
+
+  <!-- LOGOUT BUTTON START HERE -->
+
+  <button class="btnOfSideMenu"><i class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp; &nbsp; Logout</button>
+
+</div>
+
+<!-- SIDEBAR END HERE -->
+
+
+
+
+<div [ngClass]="sidebar ? 'main-flex-containerWithSidebar' :'main-flex-containerWithoutSidebar'">
+  <div class="dashbar">
+    <button style="background-color: transparent; border: none;"
+            (click)="sidebarShow()">
+            <i class="fa-solid fa-bars fa-2x">
+            </i></button>
+
+    <div class="" style="padding: 10px;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+
+  </div>
+
+

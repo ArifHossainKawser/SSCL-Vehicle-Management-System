@@ -20,16 +20,21 @@ export class LogInComponent implements OnInit {
   errorMessage?: string = '';
 
   login(){
-    console.log(this.email);
-    console.log(this.password);
     this.backendService.authenticate(this.email, this.password).subscribe(
       response => {
-        if(response){
+        if(response == 'ADMIN'){
             this.route.navigateByUrl('/admin');
+        }else{
+          this.errorMessage = 'Invalid Credential';
         }
+        if(response == 'USER'){
+          this.route.navigateByUrl('/user');
+      }else{
+        this.errorMessage = 'Invalid Credential';
       }
-    ),
-    this.errorMessage = 'Invalid Credential';
+      }
+    )
+
   }
 
 

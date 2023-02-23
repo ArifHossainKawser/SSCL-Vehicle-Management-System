@@ -6,7 +6,8 @@ import { AdminGuard } from './vms/module/admin/admin.guard';
 
 
 const routes: Routes = [
-  {path: 'admin', canActivate: [AdminGuard], loadChildren: () => import('./vms/module/admin/admin.module').then(m => m.AdminModule)},
+  {path: 'admin', loadChildren: () => import('./vms/module/admin/admin.module').then(m => m.AdminModule)},
+  {path: 'user', loadChildren: () => import('./vms/module/user/user.module').then(m => m.UserModule)},
   {path: 'login', component:LogInComponent},
   {path: '**', redirectTo: "/login", pathMatch: "full" },
 

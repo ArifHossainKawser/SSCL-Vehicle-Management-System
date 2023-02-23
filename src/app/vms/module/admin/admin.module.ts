@@ -6,17 +6,23 @@ import { BookingRequestComponent } from './booking-request/booking-request.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouteOutletComponent } from './route-outlet/route-outlet.component';
 import { BackendService } from '../../services/backend.service';
+import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
+import { FormsModule } from '@angular/forms';
+import { ModelModule } from '../../model/model.module';
 
 
 @NgModule({
   declarations: [
     BookingRequestComponent,
     DashboardComponent,
-    RouteOutletComponent
+    RouteOutletComponent,
+    AddVehicleComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule,
+    ModelModule
   ],
   providers:[BackendService]
 })

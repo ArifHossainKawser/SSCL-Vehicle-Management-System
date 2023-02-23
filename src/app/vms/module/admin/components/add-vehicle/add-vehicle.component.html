@@ -1,0 +1,40 @@
+
+<div class="pagetitle">
+  <h3><b>Add Vehicle</b></h3>
+<hr>
+</div>
+
+<form #vihecleAddForm="ngForm" novalidate (ngSubmit)="addVehicle(vihecleAddForm)">
+  <div class="form-group">
+    <label>Make:</label>
+    <input type="text" class="form-control" #make="ngModel" name="make" [(ngModel)]="vehicle.make" placeholder="Made by">
+  </div>
+
+  <div class="form-group">
+    <label>Model:</label>
+    <input type="text" class="form-control" #model="ngModel" name="model" [(ngModel)]="vehicle.model" placeholder="Model" required>
+  </div>
+
+  <div class="form-group">
+    <label>Year:</label>
+    <input type="number" class="form-control" #year="ngModel" name="year" [(ngModel)]="vehicle.year" placeholder="Year">
+  </div>
+
+  <div class="form-group">
+    <label>Registration number:</label>
+    <input type="text" class="form-control" #regNumber="ngModel" name="regNumber" [(ngModel)]="vehicle.regNumber" placeholder="Registration number" required>
+  </div>
+
+  <div class="form-group">
+    <label>Engine number:</label>
+    <input type="text" class="form-control" #engineNumber="ngModel" name="engineNumber" [(ngModel)]="vehicle.engineNumber" placeholder="Engine number" required>
+  </div>
+
+  <div class="form-group">
+    <label>Vin number:</label>
+    <input type="text" class="form-control" #vinNumber="ngModel" name="vinNumber" [(ngModel)]="vehicle.vinNumber" placeholder="Vin number">
+  </div>
+
+  <button class="btn-info" type="submit">Add</button>
+</form>
+
